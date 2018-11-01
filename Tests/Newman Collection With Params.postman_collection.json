@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "f153aebe-bca9-4db5-ba18-ac1aff5e600b",
+		"name": "Newman Collection With Params",
+		"description": "Collection for Newman API requests.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CustomerRegister",
+			"item": [
+				{
+					"name": "Customer Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8378a418-4642-4244-bc82-4795147b492c",
+								"exec": [
+									"pm.test(\"Response time is less than 1800ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1800);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n   \"FirstName\" : \"Harish\",\r\n\r\n   \"LastName\" : \"Rajora\",\r\n\r\n   \"UserName\" : \"harishrajora5\",\r\n\r\n   \"Password\" : \"123456\",\r\n\r\n   \"Email\"    : \"abc5@xyz.com\"\r\n\r\n }"
+						},
+						"url": {
+							"raw": "{{address}}/customer/register",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"customer",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Weather API",
+			"item": [
+				{
+					"name": "Weather Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7e1ca6c6-63db-42de-8113-9ef31b631b55",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{address}}/utilities/weatherfull/city/Hyderabad",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"utilities",
+								"weatherfull",
+								"city",
+								"Hyderabad"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
